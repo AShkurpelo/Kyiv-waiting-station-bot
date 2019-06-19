@@ -19,9 +19,10 @@ async function messageHandler(msg) {
 }
 
 function parseMsg(msg) {
-	const words = msg.text.split(' ');
+    console.log(`Incoming message with text: ${msg.text}`);
+	let words = msg.text.split(' ');
 	const routeNumber = words[0];
-	if (/\d+\S?/.test(routeNumber)) {
+	if (/\d+\S?/.test(routeNumber) && words.length >= 2) {
 		words = words.slice(1);
 		if (words.length && words[0].length) {
 			const stopName = words.join(' ');
@@ -30,3 +31,5 @@ function parseMsg(msg) {
 	}
 	return null;
 }
+
+module.exports = bot;
