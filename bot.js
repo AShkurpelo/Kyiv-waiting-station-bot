@@ -3,7 +3,7 @@ const { url, token } = require('./config');
 const TelegramBot = require('node-telegram-bot-api');
 
 const bot = new TelegramBot(token);
-bot.setWebHook(url + token);
+bot.setWebHook(url);
 
 bot.on('message', messageHandler);
 
